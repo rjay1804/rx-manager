@@ -1,3 +1,6 @@
 /.idea/
 /rx-manager.iml
-/target/
+*/target/
+/rx-manager-client/rx-manager-client.iml
+/rx-manager-server/rx-manager-server.iml
+/rx-manager-view/rx-manager-view.iml

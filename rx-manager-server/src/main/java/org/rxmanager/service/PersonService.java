@@ -18,4 +18,8 @@ public class PersonService {
     public Person save(Person person) {
         return personRepository.save(person);
     }
+
+    public Person findPerson(Long contactNumber, Integer countryCode) {
+        return personRepository.findByContactNumberAndCountryCode(contactNumber, countryCode);
+    }
 }

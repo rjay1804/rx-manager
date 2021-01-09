@@ -1,6 +1,9 @@
 package org.rxmanager.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -12,6 +15,15 @@ import java.util.UUID;
 
 @Data
 @Entity
+@Table(
+        uniqueConstraints = {
+            @UniqueConstraint(columnNames = {"contactNumber", "countryCode"}),
+            @UniqueConstraint(columnNames = {"emailId"})
+        }
+)
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Person {
 
     @Id
@@ -34,7 +46,7 @@ public class Person {
     @Max(999)
     private Integer countryCode;
 
-    @Column(nullable = false)
+    @Column
     @Email(message = "Invalid email")
     private String emailId;
 
